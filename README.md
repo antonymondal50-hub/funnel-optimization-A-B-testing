@@ -36,7 +36,3 @@ This project is an end-to-end simulation of an A/B test designed to optimize a p
     cd analysis
     python analyze.py
     ```
-
-### 🤝 Connect
-- Antony Mondal: https://www.linkedin.com/in/antony-mondal-8349a1165/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BS4lELuF7QGmVuOoaHvHGuA%3D%3D
-- **Your Portfolio**: [Link to your personal portfolio website/Notion page]
