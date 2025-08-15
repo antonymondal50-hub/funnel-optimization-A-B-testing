@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funnel Optimization Dashboard</title>
+    <!-- CSS and Font imports -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-8">
+    <div class="max-w-7xl mx-auto bg-[#1e1e1e] rounded-3xl shadow-2xl p-8 lg:p-12 border border-[#333]">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-2">Fixing the Funnel: A/B Testing Simulator</h1>
+            <p class="text-xl text-gray-400">A/B Testing on Signup Flow for 20% Conversion Uplift</p>
+        </header>
+
+        <!-- Funnel Visualization & Metrics -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <!-- Control Group Funnel -->
+            <div class="bg-[#2a2a2a] rounded-2xl p-8 shadow-inner border border-[#444]">
+                <h2 class="text-2xl font-semibold text-center mb-6 text-gray-200">Control Group (A)</h2>
+                <div class="space-y-4">
+                    <div class="funnel-segment bg-gray-700 w-full rounded-md p-4 text-center">
+                        <p class="text-lg font-medium">10,000 Visitors</p>
+                        <p class="text-sm text-gray-400">Baseline</p>
+                    </div>
+                    <div class="funnel-segment bg-gray-600 w-[90%] mx-auto rounded-md p-4 text-center">
+                        <p class="text-lg font-medium"><span id="control-signups">1,000</span> Signups</p>
+                        <p class="text-sm text-gray-300">Visit to Signup: <span id="control-visit-signup">10.0%</span></p>
+                    </div>
+                    <div class="funnel-segment bg-gray-500 w-[80%] mx-auto rounded-md p-4 text-center">
+                        <p class="text-lg font-medium"><span id="control-activations">300</span> Activations</p>
+                        <p class="text-sm text-gray-300">Signup to Activation: <span id="control-signup-activation">30.0%</span></p>
+                    </div>
+                    <div class="funnel-segment bg-gray-400 w-[70%] mx-auto rounded-md p-4 text-center">
+                        <p class="text-lg font-medium"><span id="control-retentions">150</span> Retentions</p>
+                        <p class="text-sm text-gray-300">Activation to Retention: <span id="control-activation-retention">50.0%</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variant Group Funnel -->
+            <div class="bg-[#2a2a2a] rounded-2xl p-8 shadow-inner border border-[#444]">
+                <h2 class="text-2xl font-semibold text-center mb-6 text-gray-200">Variant Group (B)</h2>
+                <div class="space-y-4">
+                    <div class="funnel-segment bg-gray-700 w-full rounded-md p-4 text-center">
+                        <p class="text-lg font-medium">10,000 Visitors</p>
+                        <p class="text-sm text-gray-400">New Flow</p>
+                    </div>
+                    <div class="funnel-segment bg-green-600 w-[90%] mx-auto rounded-md p-4 text-center">
+                        <p class="text-lg font-medium"><span id="variant-signups">1,200</span> Signups</p>
+                        <p class="text-sm text-gray-200">Visit to Signup: <span id="variant-visit-signup">12.0%</span></p>
+                    </div>
+                    <div class="funnel-segment bg-green-500 w-[80%] mx-auto rounded-md p-4 text-center">
+                        <p class="text-lg font-medium"><span id="variant-activations">360</span> Activations</p>
+                        <p class="text-sm text-gray-200">Signup to Activation: <span id="variant-signup-activation">30.0%</span></p>
+                    </div>
+                    <div class="funnel-segment bg-green-400 w-[70%] mx-auto rounded-md p-4 text-center">
+                        <p class="text-lg font-medium"><span id="variant-retentions">180</span> Retentions</p>
+                        <p class="text-sm text-gray-200">Activation to Retention: <span id="variant-activation-retention">50.0%</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- A/B Test Results -->
+        <div class="bg-[#2a2a2a] rounded-2xl p-8 shadow-inner border border-[#444] mb-8">
+            <h2 class="text-2xl font-semibold text-center mb-6 text-gray-200">A/B Test Results (Visit to Signup)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="p-6 bg-[#333] rounded-xl border border-[#444]">
+                    <p class="text-sm text-gray-400">Conversion Uplift</p>
+                    <p class="text-3xl font-bold text-green-400 mt-2"><span id="uplift-value">20.0%</span></p>
+                </div>
+                <div class="p-6 bg-[#333] rounded-xl border border-[#444]">
+                    <p class="text-sm text-gray-400">P-value</p>
+                    <p class="text-3xl font-bold text-white mt-2"><span id="p-value">0.0001</span></p>
+                </div>
+                <div class="p-6 bg-[#333] rounded-xl border border-[#444]">
+                    <p class="text-sm text-gray-400">Confidence Interval</p>
+                    <p class="text-3xl font-bold text-white mt-2"><span id="ci-value">[0.015, 0.025]</span></p>
+                </div>
+            </div>
+
+            <!-- Decision Framework -->
+            <div class="mt-8 p-6 bg-[#333] rounded-xl border border-[#444] text-center">
+                <h3 class="text-xl font-semibold mb-2" id="decision-headline">Statistically Significant: Roll Out! ✅</h3>
+                <p class="text-gray-400" id="decision-text">The observed 20% uplift in the Visit to Signup conversion rate is highly significant (p-value < 0.05). The variant is performing better and the change should be rolled out to all users.</p>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+            <button id="rerun-button" class="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg rounded-full shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+                Rerun Simulation
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "control": {
+    "total": 10000,
+    "signups": 1000,
+    "activations": 300,
+    "retentions": 150
+  },
+  "variant": {
+    "total": 10000,
+    "signups": 1200,
+    "activations": 360,
+    "retentions": 180
+  },
+  "parameters": {
+    "visit_to_signup_control_rate": 0.10,
+    "signup_to_activation_rate": 0.30,
+    "activation_to_retention_rate": 0.50,
+    "uplift_target": 0.20
+  }
+}
